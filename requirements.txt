@@ -1,0 +1,15 @@
+google-cloud-aiplatform
+google-cloud-discoveryengine
+google-genai
+google-cloud-speech
+flask
+requests
+aiortc 
+aiohttp
+opencv-python 
+pyaudio 
+pillow 
+mss
+ffmpeg-python
+python-dotenv
+scipy

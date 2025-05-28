@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice & Text to D-ID Avatar</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>D-ID Avatar Demo</h1>
+    <div class="container">
+        <div class="main-content">
+            <div class="controls-area">
+                <button id="connectBtn">Connect to Avatar</button>
+                <button id="destroyBtn" disabled>Disconnect Session</button>
+            </div>
+
+            <div class="input-area">
+                <textarea id="textInput" placeholder="Type your message here..." disabled></textarea>
+                <button id="submitTextBtn" disabled>Send Text</button>
+            </div>
+
+            <div class="input-area">
+                <button id="recordBtn" disabled>Start Recording</button>
+                <button id="stopRecordBtn" disabled>Stop Recording</button>
+            </div>
+            <p id="status">Status: Idle. Please connect to the avatar.</p>
+
+
+            <div class="video-area">
+                <h2>Avatar Response:</h2>
+                <video id="didVideo" width="320" height="320" autoplay playsinline muted controls>
+                    Your browser does not support the video tag.
+                </video>
+                <div id="connectionStatus">Connection Status: Idle</div>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            <div class="chat-history-area">
+                <h3>Chat History:</h3>
+                <div id="chatHistory">
+                    </div>
+            </div>
+            <div class="logs-area">
+                <h3>Logs:</h3>
+                <pre id="logs"></pre>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

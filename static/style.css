@@ -1,0 +1,155 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    flex-direction: column; /* Changed for overall layout */
+    align-items: center;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 700px;
+    display: flex; /* Use flexbox for internal layout */
+    flex-direction: row; /* Side-by-side layout for main content and logs */
+    gap: 20px; /* Space between main content and logs/chat */
+}
+
+.main-content {
+    flex: 2; /* Takes more space */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.controls-area, .input-area {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+}
+
+textarea#textInput {
+    flex-grow: 1;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    min-height: 50px;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.video-area {
+    text-align: center;
+}
+
+#didVideo {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #000; /* Placeholder background */
+}
+
+#status, #connectionStatus {
+    margin-top: 10px;
+    font-style: italic;
+    color: #555;
+}
+
+.sidebar { /* New container for logs and chat history */
+    flex: 1.5; /* Takes less space than main content */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-height: 80vh; /* Limit height */
+}
+
+
+.logs-area, .chat-history-area {
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    padding: 10px;
+    border-radius: 4px;
+    flex-shrink: 1; /* Allow shrinking */
+    overflow-y: auto; /* Add scroll for overflow */
+    min-height: 150px; /* Minimum height */
+}
+.logs-area pre, .chat-history-area div {
+     white-space: pre-wrap; /* Wraps text in pre */
+     word-wrap: break-word; /* Breaks long words */
+}
+
+
+.chat-history-area {
+    flex-grow: 1; /* Allow chat history to take more space if available */
+}
+
+#chatHistory {
+    height: 200px; /* Or adjust as needed */
+    overflow-y: auto;
+    border: 1px solid #e0e0e0;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 3px;
+}
+
+.chat-message {
+    margin-bottom: 8px;
+    padding: 6px 10px;
+    border-radius: 15px; /* Rounded corners for messages */
+    max-width: 80%;
+    word-wrap: break-word;
+}
+
+.user-message {
+    background-color: #d1e7dd; /* Light green for user */
+    color: #0f5132;
+    margin-left: auto; /* Align to right */
+    border-bottom-right-radius: 0; /* Flat corner for speech bubble effect */
+}
+
+.agent-message {
+    background-color: #cff4fc; /* Light blue for agent */
+    color: #055160;
+    margin-right: auto; /* Align to left */
+    border-bottom-left-radius: 0; /* Flat corner */
+}
+
+h1, h2, h3 {
+    color: #0056b3;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stack main content and sidebar on smaller screens */
+    }
+    .main-content, .sidebar {
+        width: 100%;
+    }
+    .sidebar {
+        max-height: none; /* Remove max-height restriction for stacked layout */
+    }
+}
